@@ -24,17 +24,6 @@ const TodoList = observer(() => {
 
   return (
     <>
-      {Todos.todos
-        .filter((item) => item.status === searchParam || searchParam === "all")
-        .map((item) => (
-          <Task
-            title={item.title}
-            key={`${item.id}`}
-            status={item.status}
-            id={item.id}
-          />
-        ))}
-
       <Container
         style={{
           display: "flex",
@@ -91,6 +80,17 @@ const TodoList = observer(() => {
           Clear Completed
         </Button>
       </Container>
+
+      {Todos.todos
+        .filter((item) => item.status === searchParam || searchParam === "all")
+        .map((item) => (
+          <Task
+            title={item.title}
+            key={`${item.id}`}
+            status={item.status}
+            id={item.id}
+          />
+        ))}
     </>
   );
 });
